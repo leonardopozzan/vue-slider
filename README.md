@@ -1,0 +1,2 @@
+# vue-slider
+Vue Slider
