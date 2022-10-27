@@ -10,30 +10,28 @@
 </head>
 <body>
 
-    <div id="app">
+    <div id="app" >
 
-        <div class="container" >
-            <div class="slider-wrapper" tabindex="0">
-
-                <div class="item">
-                    <img :src="slides[activeSlide].image" :alt="slides[activeSlide].title" />
-                    <div class="text">
-                        <h3>{{slides[activeSlide].title}}</h3>
-                        <p>
-                            {{slides[activeSlide].text}}
-                        </p>
+        <div class="bg" :style="{backgroundImage : `url(${slides[activeSlide].image})`}">
+            <div class="container">
+                <div class="slider-wrapper" tabindex="0">
+                    <div class="item">
+                        <img :src="slides[activeSlide].image" :alt="slides[activeSlide].title" @mouseover="stopPlay()" @mouseleave="autoPlay()">
+                        <div class="text">
+                            <h3>{{slides[activeSlide].title}}</h3>
+                            <p>
+                                {{slides[activeSlide].text}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="thumbs">
+                        <div class="prev" @click="handleClick(false)"></div>
+                        <div class="next" @click="handleClick(true)"></div>
+                        <div v-for="(object,index) in slides" class="thumb" :class="index == activeSlide ? 'active':''" @click="this.activeSlide = index">
+                            <img :src="object.image" :alt="object.title">
+                        </div>
                     </div>
                 </div>
-
-                <div class="thumbs">
-                    <div class="prev" @click="handleClick(false)"></div>
-                    <div class="next" @click="handleClick(true)"></div>
-                    <div v-for="(object,index) in slides" class="thumb" :class="index == activeSlide ? 'active':''">
-                        <img :src="object.image" alt="object.title"/>
-                    </div>
-                    
-                </div>
-
             </div>
         </div>
 

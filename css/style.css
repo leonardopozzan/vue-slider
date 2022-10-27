@@ -9,6 +9,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    backdrop-filter: blur(8px);
 }
 
 .item {
@@ -102,4 +103,8 @@ oppure i caratteri ∧ (&and;) e ∨ (&or;)
     bottom: 35%;
     left: 50%;
     transform: translate(-50%) rotate(135deg);
+}
+.bg{
+    background-size: cover;
+    background-position: center;
 }

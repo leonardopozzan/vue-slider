@@ -28,7 +28,8 @@ const app = createApp({
     data(){
         return {
             activeSlide: 0,
-            slides: slides
+            slides: slides,
+            interval: 0
         }
     },
     methods:{
@@ -38,7 +39,15 @@ const app = createApp({
             }else{
                 this.activeSlide = (this.activeSlide - 1 <  0 ) ?  this.slides.length - 1 : this.activeSlide-1
             }
+        },
+        autoPlay(){
+            this.interval = setInterval(this.handleClick,2000,true);
+        },
+        stopPlay(){
+            clearInterval(this.interval);
         }
-        
+    },
+    mounted(){
+        this.autoPlay();
     }
 }).mount('#app');
