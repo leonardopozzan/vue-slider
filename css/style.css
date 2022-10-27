@@ -77,7 +77,7 @@ EXTRA: in questo esempio gli accordion vengono creati
 usando 2 bordi di un quadratino ruotato di 45 gradi
 In una versione base si possono usare delle icone
 oppure i caratteri ∧ (&and;) e ∨ (&or;)
- */
+*/
 .prev::after {
     content: '';
     width: 10px;

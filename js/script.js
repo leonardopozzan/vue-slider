@@ -22,3 +22,23 @@ const slides = [
     }
 ];
 
+const {createApp} = Vue;
+
+const app = createApp({
+    data(){
+        return {
+            activeSlide: 0,
+            slides: slides
+        }
+    },
+    methods:{
+        handleClick(next){
+            if(next){
+                this.activeSlide = (this.activeSlide + 1 > this.slides.length - 1) ?  0 : this.activeSlide+1
+            }else{
+                this.activeSlide = (this.activeSlide - 1 <  0 ) ?  this.slides.length - 1 : this.activeSlide-1
+            }
+        }
+        
+    }
+}).mount('#app');
